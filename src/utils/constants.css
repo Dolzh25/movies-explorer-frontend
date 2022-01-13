@@ -1,0 +1,13 @@
+:root {
+  /* Colors */
+  --default-black: #000000;
+  --default-white: #FFFFFF;
+  --accent-color: #2BE080;
+  --primary-color: #FF6838;
+  --varning-color: #EE3465;
+  --background-color: #F5F5F5;
+  --border-color: rgba(170, 170, 170, 0.2);
+
+  /* Fonts */
+  --main-font: "Inter", "Arial", "Tahoma", sans-serif;
+}

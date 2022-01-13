@@ -1,0 +1,30 @@
+.infographics {
+  display: flex;
+}
+
+.infographics__column {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.infographics__column_backend {
+  width: 20%;
+  min-width: 100px;
+  flex-grow: 0;
+}
+
+.infographics__duration {
+  margin: 0 0 14px;
+  padding: 9px 14px;
+  font-size: 14px;
+  line-height: 17px;
+  background-color: #f2f2f2;
+}
+
+.infographics__duration_color_green {
+  background-color: var(--accent-color);
+}
+
+.infographics__technologie {
+  color: #A0A0A0;
+}

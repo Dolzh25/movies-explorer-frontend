@@ -1,0 +1,32 @@
+.navigation {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation__logo {
+  flex-grow: 1;
+}
+
+.site-nav {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  column-gap: 16px;
+  flex-grow: 1;
+  list-style: none;
+}
+
+.user-nav {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  column-gap: 16px;
+  list-style: none;
+}

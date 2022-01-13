@@ -1,0 +1,47 @@
+.movie-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-card__title {
+  margin: 0;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.movie-card__image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  object-fit: cover;
+  background-color: #eee;
+}
+
+.movie-card__content {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.movie-card__like-button {
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+  color: var(--varning-color);
+  border: none;
+  border-radius: 50%;
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+.movie-card__duration {
+  width: 100%;
+  margin: 0;
+  padding-top: 6px;
+  border-top: 1px solid #e8e8e8;
+  font-size: 11px;
+  line-height: 13px;
+  color: #a0a0a0;
+}

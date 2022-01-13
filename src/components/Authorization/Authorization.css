@@ -1,0 +1,22 @@
+.authorization {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+  column-gap: 30px;
+}
+
+.authorization__link {
+  font-size: 12px;
+  line-height: 16px;
+  text-decoration: none;
+  color: var(--default-black);
+}
+
+@media (max-width: 767px) {
+  .authorization__link {
+    font-size: 10px;
+  }
+}
