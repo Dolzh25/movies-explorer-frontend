@@ -1,0 +1,19 @@
+.section-header {
+  padding-bottom: 23px;
+  border-bottom: 1px solid black;
+}
+
+.section-header__title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 27px;
+  letter-spacing: -0.04em;
+}
+
+@media screen and (max-width: 767px) {
+  .section-header__title {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
