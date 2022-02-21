@@ -5,6 +5,7 @@
   --color-text-secondary: #A0A0A0;
   --color-bg-primary: #F5F5F5;
   --color-bg-secondary: #E8E8E8;
+  --color-bg-overlay: rgba(0, 0, 0, 0.3);
 
   --color-control-white: #FFFFFF;
   --color-control-hover: #AAAAAA;

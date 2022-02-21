@@ -1,0 +1,32 @@
+.auth-nav {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  column-gap: 30px;
+}
+
+.auth-nav__link {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.auth-nav__link_login {
+  padding: 8px 20px;
+  background-color: var(--accent-primary);
+  border-radius: 3px;
+}
+
+@media screen and (max-width: 767px) {
+  .auth-nav__link {
+    font-size: 10px;
+    line-height: 16px;
+  }
+
+  .auth-nav__link_login {
+    padding: 5px 12px;
+  }
+}
