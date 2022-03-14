@@ -12,6 +12,10 @@
 }
 
 @media screen and (max-width: 767px) {
+  .section-header {
+    padding-bottom: 28px;
+  }
+
   .section-header__title {
     font-size: 18px;
     line-height: 22px;

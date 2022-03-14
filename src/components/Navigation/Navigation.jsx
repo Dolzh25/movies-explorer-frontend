@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { NavLink, Link } from 'react-router-dom';
 import './Navigation.css';
 
 const Navigation = () => {
@@ -19,16 +20,16 @@ const Navigation = () => {
         <div className='navigation__content'>
           <ul className='navigation__menu'>
             <li className='navigation__item'>
-              <a href='#1' className='navigation__link'>Главная</a>
+              <NavLink to='/' className={({ isActive }) => isActive ? 'navigation__link navigation__link_active' : 'navigation__link'}>Главная</NavLink>
             </li>
             <li className='navigation__item'>
-              <a href='#1' className='navigation__link navigation__link_active'>Фильмы</a>
+              <NavLink to='/movies' className={({ isActive }) => isActive ? 'navigation__link navigation__link_active' : 'navigation__link'}>Фильмы</NavLink>
             </li>
             <li className='navigation__item'>
-              <a href='#1' className='navigation__link'>Сохранённые фильмы</a>
+              <NavLink to='/saved-movies' className={({ isActive }) => isActive ? 'navigation__link navigation__link_active' : 'navigation__link'}>Сохранённые фильмы</NavLink>
             </li>
           </ul>
-          <a href='#1' className='navigation__user'>Аккаунт</a>
+          <Link to='/profile' className='navigation__user'>Аккаунт</Link>
         </div>
       </div>
     </nav>

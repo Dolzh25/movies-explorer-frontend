@@ -34,6 +34,11 @@
   font-size: inherit;
   line-height: inherit;
   color: var(--color-text);
+  transition: opacity 0.2s ease;
+}
+
+.footer__nav-link:hover {
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 767px) {

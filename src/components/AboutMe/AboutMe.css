@@ -49,6 +49,11 @@
   line-height: 17px;
   text-decoration: none;
   color: var(--color-text);
+  transition: opacity 0.2s ease;
+}
+
+.about-me__link:hover {
+  opacity: 0.6;
 }
 
 .about-me__image-wrapper {

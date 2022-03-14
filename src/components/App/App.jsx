@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import AboutMe from '../AboutMe/AboutMe';
-import AboutProject from '../AboutProject/AboutProject';
-import Footer from '../Footer/Footer';
-import Header from '../Header/Header';
-import Portfolio from '../Portfolio/Portfolio';
-import Promo from '../Promo/Promo';
-import Techs from '../Techs/Techs';
+import { Route, Routes } from 'react-router-dom';
+import Login from '../Login/Login';
+import Main from '../Main/Main';
+import Movies from '../Movies/Movies';
+import SavedMovies from '../SavedMovies/SavedMovies';
+import NotFound from '../NotFound/NotFound';
+import Profile from '../Profile/Profile';
+import Register from '../Register/Register';
+
 import './App.css';
 
 function App() {
@@ -13,13 +15,15 @@ function App() {
 
   return (
     <div className='App'>
-      <Header loggedIn={loggedIn} />
-      <Promo />
-      <AboutProject />
-      <Techs />
-      <AboutMe />
-      <Portfolio />
-      <Footer />
+      <Routes>
+        <Route path='/' element={<Main loggedIn={loggedIn} />}></Route>
+        <Route path='/movies' element={<Movies loggedIn={loggedIn} />}></Route>
+        <Route path='/saved-movies' element={<SavedMovies loggedIn={loggedIn} />}></Route>
+        <Route path='/profile' element={<Profile loggedIn={loggedIn} />}></Route>
+        <Route path='/signin' element={<Login />}></Route>
+        <Route path='/signup' element={<Register />}></Route>
+        <Route path='*' element={<NotFound />}></Route>
+      </Routes>
     </div>
   );
 }

@@ -14,13 +14,13 @@ const Footer = () => {
           <p className='footer__copyrigth'>&copy; {getCurrentYear()}</p>
           <ul className='footer__nav'>
             <li className='footer__nav-item'>
-              <a href='#1' className='footer__nav-link'>Яндекс.Практикум</a>
+              <a href='#1' className='footer__nav-link' target='_blank'>Яндекс.Практикум</a>
             </li>
             <li className='footer__nav-item'>
-              <a href='#1' className='footer__nav-link'>Github</a>
+              <a href='#1' className='footer__nav-link' target='_blank'>Github</a>
             </li>
             <li className='footer__nav-item'>
-              <a href='#1' className='footer__nav-link'>Facebook</a>
+              <a href='#1' className='footer__nav-link' target='_blank'>Facebook</a>
             </li>
           </ul>
         </div>
