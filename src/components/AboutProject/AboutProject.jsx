@@ -17,12 +17,12 @@ const AboutProject = () => {
             <p className='about-project__text'>У каждого этапа был мягкий и жёсткий дедлайн, которые нужно было соблюдать, чтобы успешно защититься.</p>
           </div>
         </div>
-        <div className="about-project__stats">
-          <div className="about-project__bar about-project__bar_backend">
+        <div className='about-project__stats'>
+          <div className='about-project__bar about-project__bar_backend'>
             <span className='about-project__bar-duration'>1 неделя</span>
             <span className='about-project__bar-technology'>Back-end</span>
           </div>
-          <div className="about-project__bar about-project__bar_frontend">
+          <div className='about-project__bar about-project__bar_frontend'>
             <span className='about-project__bar-duration'>4 недели</span>
             <span className='about-project__bar-technology'>Front-end</span>
           </div>

@@ -8,8 +8,8 @@ const MoviesCardList = () => {
       <ul className='movies-card-list'>
         {data.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
       </ul>
-      <div className="movies-cards__controls">
-        <button className="movies-cards__load-more">Ещё</button>
+      <div className='movies-cards__controls'>
+        <button className='movies-cards__load-more'>Ещё</button>
       </div>
     </section>
   )

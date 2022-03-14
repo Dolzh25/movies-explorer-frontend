@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Container from '../Container/Container';
 import Header from '../Header/Header';
 import './Profile.css';
@@ -21,22 +22,22 @@ const Profile = ({ loggedIn }) => {
       <main>
         <Container>
           <section className='profile'>
-            <h2 className="profile__title">Привет, Виталий!</h2>
+            <h2 className='profile__title'>Привет, Виталий!</h2>
 
-            <form action="#" className="profile__form">
+            <form action='#' className='profile__form'>
               <fieldset className='profile__group'>
-                <label className="profile__label">
+                <label className='profile__label'>
                   Имя
-                  <input type="text" className="profile__input" onChange={handleChangeName} value={name} />
+                  <input type='text' className='profile__input' onChange={handleChangeName} value={name} />
                 </label>
-                <label className="profile__label">
+                <label className='profile__label'>
                   E-mail
-                  <input type="email" className="profile__input" onChange={handleChangeEmail} value={email} />
+                  <input type='email' className='profile__input' onChange={handleChangeEmail} value={email} />
                 </label>
               </fieldset>
               <button className='profile__submit' type='submit'>Редактировать</button>
             </form>
-            <a className='profile__logout' href="#">Выйти из аккаунта</a>
+            <Link className='profile__logout' to='/'>Выйти из аккаунта</Link>
           </section>
         </Container>
       </main>

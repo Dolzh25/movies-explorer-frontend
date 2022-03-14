@@ -7,20 +7,20 @@ const Login = () => {
     <main>
       <Container>
         <AuthForm
-          title="Рады видеть!"
-          formName="login"
-          submitText="Войти"
-          text="Ещё не зарегистрированы?"
-          pathLink="/sign-up"
-          textLink="Регистрация"
+          title='Рады видеть!'
+          formName='login'
+          submitText='Войти'
+          text='Ещё не зарегистрированы?'
+          pathLink='/sign-up'
+          textLink='Регистрация'
         >
-          <label htmlFor="" className="auth-form__label">
+          <label htmlFor='' className='auth-form__label'>
             E-mail
-            <input type="email" name='user-name' className="auth-form__input" required />
+            <input type='email' name='user-name' className='auth-form__input' required />
           </label>
-          <label htmlFor="" className="auth-form__label">
+          <label htmlFor='' className='auth-form__label'>
             Пароль
-            <input type="password" name='user-password' className="auth-form__input" required />
+            <input type='password' name='user-password' className='auth-form__input' required />
           </label>
         </AuthForm>
       </Container>
