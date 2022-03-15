@@ -24,7 +24,7 @@ const Login = ({ onLogin }) => {
           formName='login'
           submitText='Войти'
           text='Ещё не зарегистрированы?'
-          pathLink='/sign-up'
+          pathLink='/signup'
           textLink='Регистрация'
           onSubmit={handleSubmit}
           isValid={isValid}
