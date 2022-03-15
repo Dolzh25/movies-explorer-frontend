@@ -1,13 +1,35 @@
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import './SearchForm.css';
+import { useFormWithValidation } from '../../utils/FormValidation';
+import { moviesApi } from '../../utils/MoviesApi';
+import { useState } from 'react';
 
 const SearchForm = () => {
+  const { values, handleChange } = useFormWithValidation();
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+
+    if (values.search) {
+      moviesApi();
+      setErrorMessage('');
+    } else {
+      setErrorMessage('Нужно ввести ключевое слово');
+    }
+  }
+
+  const handleFormChange = () => {
+    setErrorMessage('');
+  }
+
   return (
     <section className='search'>
-      <form action='#' className='search-form'>
+      <form className='search-form' onSubmit={handleSubmit} onChange={handleFormChange}>
         <label className='search-form__field'>
-          <input className='search-form__input' type='text' name='search' placeholder='Фильм' />
+          <input className='search-form__input' type='text' name='search' onChange={handleChange} placeholder='Фильм' />
         </label>
+        <div className='search-form__error'>{errorMessage}</div>
         <button className='search-form__submit' type='submit' aria-label='Найти'></button>
       </form>
       <FilterCheckbox />
