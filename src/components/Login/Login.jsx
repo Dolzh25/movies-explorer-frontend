@@ -33,12 +33,12 @@ const Login = ({ onLogin }) => {
             E-mail
             <input
               type='email'
-              name='userName'
-              id='userName'
+              name='userEmail'
+              id='userEmail'
               className='auth-form__input'
               onChange={handleChange}
               required />
-            <span className="auth-form__error" id='register-form-email-error'>{errors.userEmail}</span>
+            <span className="auth-form__error" id='login-form-email-error'>{errors.userEmail}</span>
           </label>
           <label htmlFor='' className='auth-form__label'>
             Пароль
@@ -49,7 +49,7 @@ const Login = ({ onLogin }) => {
               className='auth-form__input'
               onChange={handleChange}
               required />
-            <span className="auth-form__error" id='register-form-password-error'>{errors.userPassword}</span>
+            <span className="auth-form__error" id='login-form-password-error'>{errors.userPassword}</span>
           </label>
         </AuthForm>
       </Container>
