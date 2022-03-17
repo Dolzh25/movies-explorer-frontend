@@ -1,0 +1,18 @@
+:root {
+  --accent-primary: #2BE080;
+  --accent-secondary: #FF6838;
+  --color-text: #000000;
+  --color-text-secondary: #A0A0A0;
+  --color-bg-primary: #F5F5F5;
+  --color-bg-secondary: #E8E8E8;
+  --color-bg-overlay: rgba(0, 0, 0, 0.3);
+
+  --color-control-white: #FFFFFF;
+  --color-control-hover: #AAAAAA;
+  --color-border-control: rgba(170, 170, 170, 0.2);
+  --color-bg-control: #F9F9F9;
+  --color-varning: #EE3465;
+  --color-link-hover: rgba(0, 0, 0, 0.7);
+
+  --main-font: "Inter", "Arial", "Tahoma", sans-serif;
+} 
