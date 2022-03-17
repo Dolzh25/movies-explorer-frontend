@@ -31,7 +31,7 @@ const SearchForm = ({ searchMovies }) => {
     <section className='search'>
       <form className='search-form' onSubmit={handleSubmit} onChange={handleFormChange}>
         <label className='search-form__field'>
-          <input className='search-form__input' type='text' name='search' onChange={handleChange} placeholder='Фильм' />
+          <input className='search-form__input' type='text' name='search' onChange={handleChange} placeholder='Фильм' required />
         </label>
         <span className='search-form__error'>{errorMessage}</span>
         <button className='search-form__submit' type='submit' aria-label='Найти'></button>
