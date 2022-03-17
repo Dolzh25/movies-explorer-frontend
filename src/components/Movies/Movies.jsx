@@ -5,13 +5,13 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import SearchForm from '../SearchForm/SearchForm';
 import './Movies.css';
 
-const Movies = ({ loggedIn }) => {
+const Movies = ({ loggedIn, searchMovies }) => {
   return (
     <>
       <Header loggedIn={loggedIn} />
       <main>
         <Container>
-          <SearchForm />
+          <SearchForm searchMovies={searchMovies} />
           <MoviesCardList />
         </Container>
       </main>

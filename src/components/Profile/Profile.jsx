@@ -4,7 +4,7 @@ import Container from '../Container/Container';
 import Header from '../Header/Header';
 import './Profile.css';
 
-const Profile = ({ loggedIn }) => {
+const Profile = ({ loggedIn, onSignOut }) => {
   const [name, setName] = useState('Виталий');
   const [email, setEmail] = useState('pochta@yandex.ru');
 
@@ -14,6 +14,10 @@ const Profile = ({ loggedIn }) => {
 
   const handleChangeEmail = (evt) => {
     setEmail(evt.target.value)
+  }
+
+  const handleLogoutClick = () => {
+    onSignOut();
   }
 
   return (
@@ -37,7 +41,7 @@ const Profile = ({ loggedIn }) => {
               </fieldset>
               <button className='profile__submit' type='submit'>Редактировать</button>
             </form>
-            <Link className='profile__logout' to='/'>Выйти из аккаунта</Link>
+            <Link className='profile__logout' onClick={handleLogoutClick} to='/'>Выйти из аккаунта</Link>
           </section>
         </Container>
       </main>

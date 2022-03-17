@@ -55,6 +55,18 @@
   background-color: var(--color-bg-control);
 }
 
+.auth-form__input:invalid {
+  outline: 2px solid var(--color-varning);
+}
+
+.auth-form__input:valid {
+  outline: 2px solid var(--accent-primary);
+}
+
+.auth-form__error {
+  color: var(--color-varning);
+}
+
 .auth-form__submit {
   margin-top: auto;
   padding: 14px 22px;
@@ -71,6 +83,15 @@
 
 .auth-form__submit:hover {
   opacity: 0.6;
+}
+
+.auth-form__submit:disabled {
+  background-color: var(--color-control-hover);
+  cursor: initial;
+}
+
+.auth-form__submit:disabled:hover {
+  opacity: 1;
 }
 
 .auth-form__text {

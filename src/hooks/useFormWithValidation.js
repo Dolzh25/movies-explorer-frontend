@@ -14,7 +14,6 @@ export const useFormWithValidation = () => {
     setValues({ ...values, [name]: value });
     setErrors({ ...errors, [name]: input.validationMessage });
     setIsValid(input.closest('form').checkValidity());
-    console.log(isValidInputs);
 
     setIsValidInputs({ ...isValidInputs, [name]: input.checkValidity() });
   };
