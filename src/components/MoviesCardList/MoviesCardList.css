@@ -54,12 +54,13 @@
   }
 
   .movies-card-list {
-    grid-template-columns: auto;
     row-gap: 23px;
   }
+}
 
-  .movies-cards__controls {
-    padding-left: 30px;
-    padding-right: 30px;
+@media screen and (max-width: 425px) {
+  .movies-card-list {
+    grid-template-columns: auto;
+
   }
 }

@@ -1,0 +1,30 @@
+.load-more {
+  display: flex;
+  justify-content: center;
+  padding: 50px 0 80px;
+}
+
+.load-more__button {
+  max-width: 320px;
+  width: 100%;
+  padding: 10px 60px;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--color-bg-control);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.load-more__button:hover {
+  background-color: var(--color-bg-secondary);
+}
+
+@media screen and (max-width: 767px) {
+  .load-more {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
