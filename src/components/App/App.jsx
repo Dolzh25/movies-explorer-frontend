@@ -221,8 +221,9 @@ function App() {
       <div className='App'>
         <Routes>
           <Route path='/' element={<Main isLoggedIn={isLoggedIn} />}></Route>
-          <Route path='/movies' element={
-            <ProtectedRoute isLoggedIn={isLoggedIn}>
+
+          <Route element={<ProtectedRoute isLoggedIn={isLoggedIn} />} >
+            <Route path='/movies' element={
               <Movies
                 isLoggedIn={isLoggedIn}
                 isLoading={isLoading}
@@ -235,11 +236,9 @@ function App() {
                 saveMovie={saveMovie}
                 removeMovie={removeMovie}
               />
-            </ProtectedRoute>
-          }>
-          </Route>
-          <Route path='/saved-movies' element={
-            <ProtectedRoute isLoggedIn={isLoggedIn}>
+            }>
+            </Route>
+            <Route path='/saved-movies' element={
               <SavedMovies
                 isLoggedIn={isLoggedIn}
                 isChecking={isAuthChecking}
@@ -247,11 +246,9 @@ function App() {
                 searchMovies={searchSavedMovies}
                 removeMovie={removeMovie}
               />
-            </ProtectedRoute>
-          }>
-          </Route>
-          <Route path='/profile' element={
-            <ProtectedRoute isLoggedIn={isLoggedIn}>
+            }>
+            </Route>
+            <Route path='/profile' element={
               <Profile
                 isLoggedIn={isLoggedIn}
                 component={Profile}
@@ -259,15 +256,11 @@ function App() {
                 onUpdateProfile={handleUpdateProfile}
                 onSignout={handleSignout}
               />
-            </ProtectedRoute>
-          }>
+            }>
+            </Route>
           </Route>
-          <Route path='/signin' element={
-            <Login
-              onLogin={handleLogin}
-            />
-          }>
-          </Route>
+
+          <Route path='/signin' element={<Login onLogin={handleLogin} />}></Route>
           <Route path='/signup' element={<Register onRegister={handleRegister} />}></Route>
           <Route path='*' element={<NotFound />}></Route>
         </Routes>
