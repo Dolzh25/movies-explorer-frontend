@@ -18,7 +18,7 @@ export const useFormWithValidation = () => {
     setIsValidInputs({ ...isValidInputs, [name]: input.checkValidity() });
   };
 
-  const resetFrom = useCallback(
+  const resetForm = useCallback(
     (newValues = {}, newErrors = {}, newIsValid = false, newIsValidInputs = {}) => {
       setValues(newValues);
       setErrors(newErrors);
@@ -28,5 +28,5 @@ export const useFormWithValidation = () => {
     [setValues, setErrors, setIsValid]
   );
 
-  return { values, handleChange, resetFrom, errors, isValid, isValidInputs };
+  return { values, handleChange, resetForm, errors, isValid, isValidInputs };
 };

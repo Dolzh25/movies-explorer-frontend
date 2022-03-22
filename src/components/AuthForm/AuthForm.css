@@ -67,8 +67,13 @@
   color: var(--color-varning);
 }
 
-.auth-form__submit {
+.auth-form__submit-error {
   margin-top: auto;
+  text-align: center;
+  color: var(--color-varning);
+}
+
+.auth-form__submit {
   padding: 14px 22px;
   border: none;
   border-radius: 3px;

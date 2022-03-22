@@ -34,6 +34,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  row-gap: 10px;
   padding: 17px 0;
   border-bottom: 1px solid var(--color-bg-secondary);
   font-weight: 500;
@@ -48,16 +50,26 @@
 
 .profile__input {
   border: none;
-  padding: 0;
   font-weight: 400;
   font-size: 11px;
   line-height: 13px;
   text-align: right;
 }
 
+.profile-form__input-error {
+  width: 100%;
+  margin: 0;
+  color: var(--color-varning);
+}
+
+.profile__submit-error {
+  margin-top: auto;
+  text-align: center;
+  color: var(--color-varning);
+}
+
 .profile__submit {
   align-self: center;
-  margin-top: auto;
   padding: 0;
   border: none;
   background-color: transparent;
@@ -67,6 +79,14 @@
 
 .profile__submit:hover {
   opacity: 0.6;
+}
+
+.profile__submit:disabled {
+  cursor: initial;
+}
+
+.profile__submit:disabled:hover {
+  opacity: 1;
 }
 
 .profile__logout {

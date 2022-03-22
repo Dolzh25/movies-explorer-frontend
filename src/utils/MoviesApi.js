@@ -1,5 +1,7 @@
+export const BASE_URL = 'https://api.nomoreparties.co';
+
 export const moviesApi = () => {
-  return fetch('https://api.nomoreparties.co/beatfilm-movies', {
+  return fetch(`${BASE_URL}/beatfilm-movies`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json; charset=utf-8',

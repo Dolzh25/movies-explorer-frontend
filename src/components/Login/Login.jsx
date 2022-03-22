@@ -13,7 +13,7 @@ const Login = ({ onLogin }) => {
     evt.preventDefault();
 
     onLogin(values.userEmail, values.userPassword)
-      .then(resetFrom);
+      .then(resetFrom)
   }
 
   return (

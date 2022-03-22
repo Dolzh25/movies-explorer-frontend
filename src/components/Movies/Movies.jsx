@@ -1,20 +1,41 @@
 import Container from '../Container/Container';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
-import LoadMore from '../LoadMore/LoadMore';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import SearchForm from '../SearchForm/SearchForm';
 import './Movies.css';
 
-const Movies = ({ loggedIn, searchMovies }) => {
+const Movies = (props) => {
+  const {
+    isLoggedIn,
+    isLoading,
+    isSearching,
+    searchMovies,
+    movies,
+    searchValue,
+    savedMoviesIds,
+    saveMovie,
+    removeMovie,
+  } = props;
+
   return (
     <>
-      <Header loggedIn={loggedIn} />
+      <Header isLoggedIn={isLoggedIn} />
       <main>
         <Container>
-          <SearchForm searchMovies={searchMovies} />
-          <MoviesCardList />
-          <LoadMore />
+          <SearchForm searchMovies={searchMovies} searchValue={searchValue} />
+          {isSearching ?
+            <MoviesCardList
+              listType="main"
+              isLoading={isLoading}
+              movies={movies}
+              saveMovie={saveMovie}
+              removeMovie={removeMovie}
+              savedMoviesIds={savedMoviesIds}
+            />
+            :
+            <p>Воспользуйтесь поиском</p>
+          }
         </Container>
       </main>
       <Footer />

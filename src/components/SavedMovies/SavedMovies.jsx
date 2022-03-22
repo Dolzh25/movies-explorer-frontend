@@ -4,14 +4,20 @@ import Header from '../Header/Header';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import SearchForm from '../SearchForm/SearchForm';
 
-const Movies = ({ loggedIn }) => {
+const SavedMovies = (props) => {
+  const { isLoggedIn, isLoading, movies, removeMovie, searchMovies } = props;
   return (
     <>
-      <Header loggedIn={loggedIn} />
+      <Header isLoggedIn={isLoggedIn} />
       <main>
         <Container>
-          <SearchForm />
-          <MoviesCardList />
+          <SearchForm searchMovies={searchMovies} />
+          <MoviesCardList
+            listType="save"
+            isLoading={isLoading}
+            movies={movies}
+            removeMovie={removeMovie}
+          />
         </Container>
       </main>
       <Footer />
@@ -19,4 +25,4 @@ const Movies = ({ loggedIn }) => {
   )
 }
 
-export default Movies;
+export default SavedMovies;

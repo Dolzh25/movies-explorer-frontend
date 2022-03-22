@@ -1,42 +1,58 @@
-import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import './SearchForm.css';
+import { useEffect, useState } from 'react';
+
 import { useFormWithValidation } from '../../hooks/useFormWithValidation';
-// import { moviesApi } from '../../utils/MoviesApi';
-import { useState } from 'react';
+import { searchVoidMessage } from '../../utils/constants';
 
-const SearchForm = ({ searchMovies }) => {
+import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
+
+const SearchForm = ({ searchMovies, searchValue }) => {
   const { values, handleChange } = useFormWithValidation();
-  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
+  const [voidMessage, setVoidMessage] = useState('');
+  const [isCheckbox, setIsCheckbox] = useState(searchValue?.isCheckbox);
 
-    if (values.search) {
-      searchMovies()
-      // moviesApi()
-      // .then((movies) => {
-      //   localStorage.setItem('movies', movies);
-      // })
-      setErrorMessage('');
+  const handleCheckboxChange = (e) => {
+    setIsCheckbox(!isCheckbox);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (values.movieSearch) {
+      searchMovies(values.movieSearch, isCheckbox);
+      setVoidMessage('');
     } else {
-      setErrorMessage('Нужно ввести ключевое слово');
+      setVoidMessage(searchVoidMessage);
     }
-  }
+    return;
+  };
 
-  const handleFormChange = () => {
-    setErrorMessage('');
-  }
+  useEffect(() => { }, [searchValue]);
 
   return (
     <section className='search'>
-      <form className='search-form' onSubmit={handleSubmit} onChange={handleFormChange}>
+      <form className='search-form' onSubmit={handleSubmit} >
         <label className='search-form__field'>
-          <input className='search-form__input' type='text' name='search' onChange={handleChange} placeholder='Фильм' required />
+          <input
+            className='search-form__input'
+            type="text"
+            name="movieSearch"
+            id="movieSearch"
+            value={values.movieSearch || ''}
+            onChange={handleChange}
+            placeholder={searchValue?.keyword || 'Фильм'}
+          />
         </label>
-        <span className='search-form__error'>{errorMessage}</span>
+        <span className='search-form__error'>{voidMessage}</span>
         <button className='search-form__submit' type='submit' aria-label='Найти'></button>
       </form>
-      <FilterCheckbox />
+      <FilterCheckbox
+        text="Короткометражки"
+        id="switchShortMovie"
+        onCheckboxChange={handleCheckboxChange}
+        isCheckbox={isCheckbox}
+      />
     </section>
   )
 }
