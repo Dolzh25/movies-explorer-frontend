@@ -88,7 +88,6 @@ function App() {
       await api.checkToken(token)
         .then(() => {
           successfulAuth(token)
-          navigate('/movies');
         })
         .catch((err) => {
           console.log(err);
@@ -101,7 +100,7 @@ function App() {
       const res = await api.login({ email, password })
       localStorage.setItem('token', res.token);
       checkAuth();
-
+      navigate('/movies');
     } catch (err) {
       showError(err.message);
       setIsLoggedIn(false);
@@ -262,7 +261,7 @@ function App() {
 
           <Route path='/signin' element={<Login onLogin={handleLogin} />}></Route>
           <Route path='/signup' element={<Register onRegister={handleRegister} />}></Route>
-          <Route path='*' element={<NotFound />}></Route>
+          <Route path='/*' element={<NotFound />}></Route>
         </Routes>
         <TooltipPopup
           image={imgTooltipPopup}

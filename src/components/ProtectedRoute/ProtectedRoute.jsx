@@ -6,7 +6,7 @@ const ProtectedRoute = ({ isLoggedIn }) => {
   return (
     isLoggedIn
       ? <Outlet />
-      : <Navigate to='/signin' state={{ from: location }} replace />
+      : <Navigate to='/' state={{ from: location }} replace />
   )
 };
 
