@@ -25,9 +25,17 @@
 .not-found__link {
   position: absolute;
   bottom: 60px;
+  border: none;
+  background-color: transparent;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
   text-decoration: none;
   color: var(--accent-secondary);
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.not-found__link:hover {
+  opacity: 0.6;
 }
