@@ -1,9 +1,12 @@
 import './LoadMore.css';
 
-const LoadMore = () => {
+const LoadMore = ({ onHandleClick }) => {
+  const handleMoreClick = () => {
+    onHandleClick();
+  }
   return (
     <div className='load-more'>
-      <button className='load-more__button'>Ещё</button>
+      <button className='load-more__button' onClick={handleMoreClick}>Ещё</button>
     </div>
   )
 }

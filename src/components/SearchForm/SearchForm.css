@@ -55,6 +55,15 @@
   color: var(--color-text-secondary);
 }
 
+.search-form__error {
+  position: absolute;
+  left: 20px;
+  bottom: 65px;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--color-varning);
+}
+
 .search-form__submit {
   width: 34px;
   height: 34px;

@@ -5,7 +5,7 @@ import AuthNav from '../AuthNav/AuthNav';
 import Navigation from '../Navigation/Navigation';
 import { Link } from 'react-router-dom';
 
-const Header = ({ loggedIn }) => {
+const Header = ({ isLoggedIn }) => {
   return (
     <header className='header'>
       <Container>
@@ -13,7 +13,7 @@ const Header = ({ loggedIn }) => {
           <Link to='/' className='header__logo'>
             <img src={logoPath} alt='Logo' />
           </Link>
-          {loggedIn ?
+          {isLoggedIn ?
             <Navigation /> :
             <AuthNav />
           }

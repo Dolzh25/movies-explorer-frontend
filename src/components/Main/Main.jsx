@@ -7,10 +7,10 @@ import Promo from '../Promo/Promo';
 import Techs from '../Techs/Techs';
 import Header from '../Header/Header';
 
-const Main = ({ loggedIn }) => {
+const Main = ({ isLoggedIn }) => {
   return (
     <>
-      <Header loggedIn={loggedIn} />
+      <Header isLoggedIn={isLoggedIn} />
       <main>
         <Promo />
         <AboutProject />
