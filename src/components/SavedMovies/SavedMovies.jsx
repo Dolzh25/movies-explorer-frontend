@@ -13,7 +13,7 @@ const SavedMovies = (props) => {
         <Container>
           <SearchForm searchMovies={searchMovies} />
           <MoviesCardList
-            listType="save"
+            listType='save'
             isLoading={isLoading}
             movies={movies}
             removeMovie={removeMovie}

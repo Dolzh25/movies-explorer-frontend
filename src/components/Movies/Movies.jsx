@@ -26,7 +26,7 @@ const Movies = (props) => {
           <SearchForm searchMovies={searchMovies} searchValue={searchValue} />
           {isSearching ?
             <MoviesCardList
-              listType="main"
+              listType='main'
               isLoading={isLoading}
               movies={movies}
               saveMovie={saveMovie}

@@ -1,5 +1,5 @@
 import './SearchForm.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { useFormWithValidation } from '../../hooks/useFormWithValidation';
 import { searchVoidMessage } from '../../utils/constants';
@@ -12,12 +12,12 @@ const SearchForm = ({ searchMovies, searchValue }) => {
   const [voidMessage, setVoidMessage] = useState('');
   const [isCheckbox, setIsCheckbox] = useState(searchValue?.isCheckbox);
 
-  const handleCheckboxChange = (e) => {
+  const handleCheckboxChange = () => {
     setIsCheckbox(!isCheckbox);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
 
     if (values.movieSearch) {
       searchMovies(values.movieSearch, isCheckbox);
@@ -28,7 +28,6 @@ const SearchForm = ({ searchMovies, searchValue }) => {
     return;
   };
 
-  useEffect(() => { }, [searchValue]);
 
   return (
     <section className='search'>
@@ -36,9 +35,9 @@ const SearchForm = ({ searchMovies, searchValue }) => {
         <label className='search-form__field'>
           <input
             className='search-form__input'
-            type="text"
-            name="movieSearch"
-            id="movieSearch"
+            type='text'
+            name='movieSearch'
+            id='movieSearch'
             value={values.movieSearch || ''}
             onChange={handleChange}
             placeholder={searchValue?.keyword || 'Фильм'}
@@ -48,8 +47,8 @@ const SearchForm = ({ searchMovies, searchValue }) => {
         <button className='search-form__submit' type='submit' aria-label='Найти'></button>
       </form>
       <FilterCheckbox
-        text="Короткометражки"
-        id="switchShortMovie"
+        text='Короткометражки'
+        id='switchShortMovie'
         onCheckboxChange={handleCheckboxChange}
         isCheckbox={isCheckbox}
       />

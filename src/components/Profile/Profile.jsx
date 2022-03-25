@@ -54,7 +54,7 @@ const Profile = ({ isLoggedIn, onUpdateProfile, onSignout }) => {
                     value={values.name}
                     required
                   />
-                  <p className="profile-form__input-error" id='profile-form-name-error'>{errors.nameUpdate}</p>
+                  <p className='profile-form__input-error' id='profile-form-name-error'>{errors.nameUpdate}</p>
                 </label>
                 <label className='profile__label'>
                   E-mail
@@ -68,10 +68,10 @@ const Profile = ({ isLoggedIn, onUpdateProfile, onSignout }) => {
                     value={values.email}
                     required
                   />
-                  <p className="profile-form__input-error" id='profile-form-email-error'>{errors.emailUpdate}</p>
+                  <p className='profile-form__input-error' id='profile-form-email-error'>{errors.emailUpdate}</p>
                 </label>
               </fieldset>
-              <p className="profile__submit-error"></p>
+              <p className='profile__submit-error'></p>
               <button className='profile__submit' type='submit' disabled={!isValid}>Редактировать</button>
             </form>
             <Link className='profile__logout' onClick={onSignout} to='/'>Выйти из аккаунта</Link>

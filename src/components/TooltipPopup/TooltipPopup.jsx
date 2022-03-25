@@ -31,10 +31,10 @@ const TooltipPopup = ({ image, message, isOpen, setIsOpen }) => {
       onClick={handleLayoutClick}
       className={`tooltip-popup ${isOpen && 'tooltip-popup_opened'}`}
     >
-      <div className="tooltip-popup__container">
-        <img className="tooltip-popup__image" src={image} alt="Результат запроса" />
-        <p className="tooltip-popup__text">{message}</p>
-        <button className="tooltip-popup__close-button" onClick={closePopup} />
+      <div className='tooltip-popup__container'>
+        <img className='tooltip-popup__image' src={image} alt='Результат запроса' />
+        <p className='tooltip-popup__text'>{message}</p>
+        <button className='tooltip-popup__close-button' onClick={closePopup} />
       </div>
     </div>
   );

@@ -33,15 +33,15 @@ const Register = ({ onRegister }) => {
             Имя
             <input
               type='text'
-              name="userName"
-              id="userName"
-              minLength="2"
-              maxLength="30"
+              name='userName'
+              id='userName'
+              minLength='2'
+              maxLength='30'
               className='auth-form__input'
               onChange={handleChange}
               required
             />
-            <span className="auth-form__error" id='register-form-name-error'>{errors.userName}</span>
+            <span className='auth-form__error' id='register-form-name-error'>{errors.userName}</span>
           </label>
           <label className='auth-form__label'>
             E-mail
@@ -52,7 +52,7 @@ const Register = ({ onRegister }) => {
               className='auth-form__input'
               onChange={handleChange}
               required />
-            <span className="auth-form__error" id='register-form-email-error'>{errors.userEmail}</span>
+            <span className='auth-form__error' id='register-form-email-error'>{errors.userEmail}</span>
           </label>
           <label className='auth-form__label'>
             Пароль
@@ -63,7 +63,7 @@ const Register = ({ onRegister }) => {
               className='auth-form__input'
               onChange={handleChange}
               required />
-            <span className="auth-form__error" id='register-form-password-error'>{errors.userPassword}</span>
+            <span className='auth-form__error' id='register-form-password-error'>{errors.userPassword}</span>
           </label>
         </AuthForm>
       </Container>

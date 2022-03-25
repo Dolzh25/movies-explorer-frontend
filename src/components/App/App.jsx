@@ -20,7 +20,7 @@ import imgSuccess from '../../images/success.svg';
 import imgFail from '../../images/fail.svg';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-import CurrentUserContext from "../../contexts/CurrentUserContext";
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});
@@ -216,7 +216,7 @@ function App() {
             <Routes>
               <Route path='/' element={<Main isLoggedIn={isLoggedIn} />} />
 
-              <Route path="/movies" element={
+              <Route path='/movies' element={
                 <ProtectedRoute isLoggedIn={isLoggedIn}>
                   <Movies
                     isLoggedIn={isLoggedIn}
@@ -232,7 +232,7 @@ function App() {
                   />
                 </ProtectedRoute>} />
 
-              <Route path="/saved-movies" element={
+              <Route path='/saved-movies' element={
                 <ProtectedRoute isLoggedIn={isLoggedIn}>
                   <SavedMovies
                     isLoggedIn={isLoggedIn}
@@ -243,7 +243,7 @@ function App() {
                   />
                 </ProtectedRoute>} />
 
-              <Route path="/profile" element={
+              <Route path='/profile' element={
                 <ProtectedRoute isLoggedIn={isLoggedIn}>
                   <Profile
                     isLoggedIn={isLoggedIn}
