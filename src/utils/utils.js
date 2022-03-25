@@ -1,3 +1,5 @@
+import { shortsMovieMaxDuration } from './constants';
+
 export const parseMovies = (movies, BASE_URL) =>
   movies.map((movie) => {
     const parsedMovie = {
@@ -13,7 +15,7 @@ export const parseMovies = (movies, BASE_URL) =>
   });
 
 export const searchByKeyword = (movies, keyword = '', isCheckbox) => {
-  const maxDuration = isCheckbox && 40;
+  const maxDuration = isCheckbox && shortsMovieMaxDuration;
   const lowerCaseKeyword = keyword.toLowerCase();
 
   const seachedMovies = movies.filter(

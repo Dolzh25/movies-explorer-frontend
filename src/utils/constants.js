@@ -15,3 +15,4 @@ export const fetchErrorMessage =
   'Ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз';
 export const searchErrorMessage = 'Нужно ввести ключевое слово';
 export const updateProfileErrorMessage = 'Пользователь с таким e-mail уже существует';
+export const shortsMovieMaxDuration = 40;
