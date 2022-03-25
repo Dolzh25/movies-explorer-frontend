@@ -32,7 +32,7 @@ const SearchForm = ({ searchMovies, searchValue }) => {
     resetForm({
       movieSearch: searchValue.keyword
     })
-  }, [searchValue]);
+  }, [resetForm, searchValue]);
 
   return (
     <section className='search'>
