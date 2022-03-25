@@ -8,7 +8,8 @@ export const apiFetch = async ({
   const res = await fetch(`${BASE_URL}/${path}`, {
     method,
     headers: {
-      'Content-Type': 'application/json; charset=utf-8',
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
     },
     body: body && JSON.stringify(body),
     credentials,

@@ -8,6 +8,7 @@ import NotFound from '../NotFound/NotFound';
 import Profile from '../Profile/Profile';
 import Register from '../Register/Register';
 import TooltipPopup from '../TooltipPopup/TooltipPopup';
+import Preloader from '../Preloader/Preloader';
 
 import './App.css';
 import * as api from '../../utils/MainApi';
@@ -54,14 +55,14 @@ function App() {
     setIsTooltipPopupOpen(true);
   };
 
-  const successfulAuth = async (token) => {
+  const successfulAuth = async () => {
     setIsLoggedIn(true);
     setIsLoading(true);
 
     try {
       const [user, savedMovies, apiMovies] = await Promise.all([
-        api.getUser(token),
-        api.getMovies(token),
+        api.getUser(),
+        api.getMovies(),
         apiBeatFilm.moviesApi(),
       ]);
       setCurrentUser(user);
@@ -82,24 +83,20 @@ function App() {
   };
 
   const checkAuth = async () => {
-    const token = localStorage.getItem('token');
-
-    if (token) {
-      await api.checkToken(token)
-        .then(() => {
-          successfulAuth(token)
-        })
-        .catch((err) => {
-          console.log(err);
-        })
+    try {
+      await api.checkToken()
+      successfulAuth();
+      setIsAuthChecking(false);
+    } catch (err) {
+      setIsLoggedIn(false);
+      setIsAuthChecking(false);
     }
   };
 
   const handleLogin = async (email, password) => {
     try {
-      const res = await api.login({ email, password })
-      localStorage.setItem('token', res.token);
-      checkAuth();
+      await api.login({ email, password })
+      successfulAuth();
       navigate('/movies');
     } catch (err) {
       showError(err.message);
@@ -110,16 +107,18 @@ function App() {
   const handleRegister = async (name, email, password) => {
     try {
       const res = await api.register({ name, email, password })
-      navigate('/signin');
+      await api.login({ email, password })
+      successfulAuth();
+      navigate('/movies');
       showSuccess(res.message);
     } catch (err) {
       showError(err.message);
     }
   };
 
-  const handleSignout = () => {
+  const handleSignout = async () => {
+    await api.logout();
     setIsLoggedIn(false);
-    localStorage.removeItem('token');
     navigate('/');
     setIsSearching(true);
   };
@@ -193,14 +192,7 @@ function App() {
   };
 
   useEffect(() => {
-    setIsAuthChecking(true);
-    checkAuth()
-      .then(() => {
-        setIsAuthChecking(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
+    checkAuth();
   }, []);
 
   useEffect(() => {
@@ -218,59 +210,65 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className='App'>
-        <Routes>
-          <Route path='/' element={<Main isLoggedIn={isLoggedIn} />}></Route>
+        {isAuthChecking
+          ? <Preloader />
+          : (
+            <Routes>
+              <Route path='/' element={<Main isLoggedIn={isLoggedIn} />} />
 
-          <Route element={<ProtectedRoute isLoggedIn={isLoggedIn} />} >
-            <Route path='/movies' element={
-              <Movies
-                isLoggedIn={isLoggedIn}
-                isLoading={isLoading}
-                isChecking={isAuthChecking}
-                isSearching={isSearching}
-                movies={searchedMovies}
-                searchValue={searchValue}
-                savedMoviesIds={savedMovieIds}
-                searchMovies={searchMovies}
-                saveMovie={saveMovie}
-                removeMovie={removeMovie}
-              />
-            }>
-            </Route>
-            <Route path='/saved-movies' element={
-              <SavedMovies
-                isLoggedIn={isLoggedIn}
-                isChecking={isAuthChecking}
-                movies={searchedSavedMovies}
-                searchMovies={searchSavedMovies}
-                removeMovie={removeMovie}
-              />
-            }>
-            </Route>
-            <Route path='/profile' element={
-              <Profile
-                isLoggedIn={isLoggedIn}
-                component={Profile}
-                isChecking={isAuthChecking}
-                onUpdateProfile={handleUpdateProfile}
-                onSignout={handleSignout}
-              />
-            }>
-            </Route>
-          </Route>
+              <Route path="/movies" element={
+                <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <Movies
+                    isLoggedIn={isLoggedIn}
+                    isLoading={isLoading}
+                    isChecking={isAuthChecking}
+                    isSearching={isSearching}
+                    movies={searchedMovies}
+                    searchValue={searchValue}
+                    savedMoviesIds={savedMovieIds}
+                    searchMovies={searchMovies}
+                    saveMovie={saveMovie}
+                    removeMovie={removeMovie}
+                  />
+                </ProtectedRoute>} />
 
-          <Route path='/signin' element={<Login onLogin={handleLogin} />}></Route>
-          <Route path='/signup' element={<Register onRegister={handleRegister} />}></Route>
-          <Route path='/*' element={<NotFound />}></Route>
-        </Routes>
+              <Route path="/saved-movies" element={
+                <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <SavedMovies
+                    isLoggedIn={isLoggedIn}
+                    isChecking={isAuthChecking}
+                    movies={searchedSavedMovies}
+                    searchMovies={searchSavedMovies}
+                    removeMovie={removeMovie}
+                  />
+                </ProtectedRoute>} />
+
+              <Route path="/profile" element={
+                <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <Profile
+                    isLoggedIn={isLoggedIn}
+                    component={Profile}
+                    isChecking={isAuthChecking}
+                    onUpdateProfile={handleUpdateProfile}
+                    onSignout={handleSignout}
+                  />
+                </ProtectedRoute>} />
+
+              <Route path='/signin' element={<Login onLogin={handleLogin} />} />
+              <Route path='/signup' element={<Register onRegister={handleRegister} />} />
+              <Route path='*' element={<NotFound />} />
+            </Routes>
+          )
+        }
+
         <TooltipPopup
           image={imgTooltipPopup}
           message={messageTooltipPopup}
           isOpen={isTooltipPopupOpen}
           setIsOpen={setIsTooltipPopupOpen}
         />
-      </div>
-    </CurrentUserContext.Provider>
+      </div >
+    </CurrentUserContext.Provider >
   );
 }
 
