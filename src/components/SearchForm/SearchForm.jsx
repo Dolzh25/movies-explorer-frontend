@@ -1,5 +1,5 @@
 import './SearchForm.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useFormWithValidation } from '../../hooks/useFormWithValidation';
 import { searchVoidMessage } from '../../utils/constants';
@@ -7,7 +7,7 @@ import { searchVoidMessage } from '../../utils/constants';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
 const SearchForm = ({ searchMovies, searchValue }) => {
-  const { values, handleChange } = useFormWithValidation();
+  const { values, handleChange, resetForm } = useFormWithValidation();
 
   const [voidMessage, setVoidMessage] = useState('');
   const [isCheckbox, setIsCheckbox] = useState(searchValue?.isCheckbox);
@@ -28,6 +28,11 @@ const SearchForm = ({ searchMovies, searchValue }) => {
     return;
   };
 
+  useEffect(() => {
+    resetForm({
+      movieSearch: searchValue.keyword
+    })
+  }, [searchValue]);
 
   return (
     <section className='search'>
@@ -40,7 +45,7 @@ const SearchForm = ({ searchMovies, searchValue }) => {
             id='movieSearch'
             value={values.movieSearch || ''}
             onChange={handleChange}
-            placeholder={searchValue?.keyword || 'Фильм'}
+            placeholder='Фильм'
           />
         </label>
         <span className='search-form__error'>{voidMessage}</span>

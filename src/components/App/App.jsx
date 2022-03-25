@@ -240,6 +240,7 @@ function App() {
                     movies={searchedSavedMovies}
                     searchMovies={searchSavedMovies}
                     removeMovie={removeMovie}
+                    searchValue={searchValue}
                   />
                 </ProtectedRoute>} />
 

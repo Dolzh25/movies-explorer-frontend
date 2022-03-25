@@ -5,13 +5,13 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import SearchForm from '../SearchForm/SearchForm';
 
 const SavedMovies = (props) => {
-  const { isLoggedIn, isLoading, movies, removeMovie, searchMovies } = props;
+  const { isLoggedIn, isLoading, movies, removeMovie, searchMovies, searchValue } = props;
   return (
     <>
       <Header isLoggedIn={isLoggedIn} />
       <main>
         <Container>
-          <SearchForm searchMovies={searchMovies} />
+          <SearchForm searchMovies={searchMovies} searchValue={searchValue} />
           <MoviesCardList
             listType='save'
             isLoading={isLoading}
